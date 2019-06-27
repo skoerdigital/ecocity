@@ -8,7 +8,7 @@ export default class EcoMarker extends Component{
     render(){
         return(
             <View style={{flex:1}}>
-                <Animatable.Image source={images.MAP_MARKER} style={{width: 40, height: 40, resizeMode: 'contain'}} animation="zoomIn" iterationCount={1} />
+                <Animatable.Image source={images.MAP_MARKER} style={{width: 40, height: 40, resizeMode: 'contain'}} animation="zoomIn" delay={1500} duration={1500} iterationCount={1} />
             </View>
         )
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { inject, observer } from 'mobx-react';
@@ -7,12 +7,11 @@ import { inject, observer } from 'mobx-react';
 import images from '../../globals/images';
 import styles from './styles';
 import HomeMap from '../../components/Map/MapComponent';
+import SingleScooterModal from '../../components/Modals/SingleScooterModal';
 
 
-
-
-// @inject('scooterStore')
-// @observer
+@inject('scooterStore')
+@observer
 export default class HomeContainer extends Component {
 
     static navigationOptions = ({navigation}) => ({
@@ -39,6 +38,10 @@ export default class HomeContainer extends Component {
         this.props.navigation.navigate('Wallet')
     }
 
+    // onShowSingle(scooter){
+    //     this.props.modalStore.toggleModal();
+    // }
+
     render(){
         
         return(
@@ -53,7 +56,7 @@ export default class HomeContainer extends Component {
                     </TouchableWithoutFeedback>
 
                     <TouchableWithoutFeedback 
-                        onPress={() => this.onOpenScanner()}>
+                        onPress={(scooter) => this.onShowSingle(scooter)}>
                             <Image
                                 style={styles.scanButton}
                                 source={images.SCAN_BUTTON}/>
@@ -78,8 +81,14 @@ export default class HomeContainer extends Component {
                     </View>
                     
                 </View>
-                <HomeMap showsUserLocation={true}>
+                <HomeMap 
+                    showsUserLocation={true}
+                    //onShowSingleScooter={(scooter) => this.onShowSingle(scooter)}
+                    >
                 </HomeMap>
+                <SingleScooterModal
+                    // scooter={this.selectedScooter}
+                />
             </View>
         )
     }
