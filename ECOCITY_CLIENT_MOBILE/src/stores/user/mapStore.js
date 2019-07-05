@@ -1,10 +1,17 @@
-import { observable, action, decorate } from 'mobx';
+import { observable, action, decorate, computed, autorun } from 'mobx';
 
 
 class MapStore {
-    currentPosition;
-    navigateToPointDistance;
-    navigateToPointDuration;
+    currentPosition = { 
+        latitude: null,
+        longitude: null
+    };
+
+    markerActive = false;
+    selectedMarkerID = null;
+
+    navigateToPointDistance = 0;
+    navigateToPointDuration = 0;
 
     constructor(){
         this.currentPosition = { 
@@ -13,7 +20,22 @@ class MapStore {
         }
     }
 
-    s
+    @computed get directionsParameters() {
+        return this.navigateToPointDistance && this.navigateToPointDuration ? true : false
+    }
+
+    setDirectionParameters(distance, duration){
+        this.markerActive = true;
+        this.navigateToPointDistance = distance;
+        this.navigateToPointDuration = duration;
+    }
+
+    onDisactiveMarker(){
+        if(this.markerActive){
+            this.markerActive = false
+        }
+    }
+
 
     setCurrentPosition(coords){
         this.currentPosition = { 
@@ -25,10 +47,22 @@ class MapStore {
 
 decorate(MapStore, {
     currentPosition: observable,
-    saveCurrentPosition: action,
+    setCurrentPosition: action,
+    setDirectionParameters: action,
     navigateToPointDistance: observable,
-    navigateToPointDuration: observable
+    navigateToPointDuration: observable,
+    directionsReady: observable,
+    markerActive: observable,
+    onDisactiveMarker: action,
+    selectedMarkerID: observable  
 })
 
-export default new MapStore();
 
+const store = new MapStore()
+export default store;
+
+
+
+autorun(() => {
+    console.log(store.directionsReady)
+})

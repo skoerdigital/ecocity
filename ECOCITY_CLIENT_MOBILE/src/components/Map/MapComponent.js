@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, Dimensions } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
 import mapStyle from '../../globals/mapStyle';
@@ -8,6 +8,8 @@ import apiKey from '../../google_api_key';
 import { inject, observer } from 'mobx-react';
 import EcoMarker from './EcoMarker';
 import colors from '../../globals/colors'
+import EcoCallout from './EcoCallout';
+
 
 @inject('scooterStore', 'modalStore', 'mapStore')
 @observer
@@ -70,17 +72,9 @@ export default class HomeMap extends Component {
                 strokeWidth={5}
                 strokeColor={colors.GREEN1}
                 onReady={result => {
-                    console.log('Distance: ${result.distance} km')
-                    console.log('Duration: ${result.duration} min.')
-                    
-                    this.mapView.fitToCoordinates(result.coordinates, {
-                        edgePadding: {
-                            right: (width / 20),
-                            bottom: (height / 20),
-                            left: (width / 20),
-                            top: (height / 20),
-                        }
-                    });
+                    console.log(`Distance: ${result.distance} km`);
+                    console.log(`Duration: ${result.duration} min.`);
+                    this.props.mapStore.setDirectionParameters(result.distance, result.duration);
                 }}
             /> : null
         )
@@ -96,22 +90,29 @@ export default class HomeMap extends Component {
                 style={styles.map}
                 customMapStyle={mapStyle}
                 ref={c => this._mapView = c}
+                onPress={()=> this.props.mapStore.onDisactiveMarker()}
                 >
                 {this.props.scooterStore.scooterData.map(scooter => 
-                    <Marker 
-                        onPress={() => {
-                            this.onShowSingleScooter(scooter);
-                            this.onAnimateCameraToCoords({ latitude: scooter.coords.lat, longitude: scooter.coords.lng })
-                        }}
-                        key={scooter.id} 
-                        coordinate={{ latitude: scooter.coords.lat, longitude: scooter.coords.lng }}>
-                        <EcoMarker/>
-                        <MapView.Callout
-                        >
-                            <Text>Test</Text>
-                        </MapView.Callout>
-                    </Marker>
+                        <Marker 
+                            onPress={() => {
+                                this.props.mapStore.onDisactiveMarker()
+                                this.onShowSingleScooter(scooter);
+                                this.onAnimateCameraToCoords({ latitude: scooter.coords.lat, longitude: scooter.coords.lng })
+                            }}
+                            style={{
+                                overflow: 'visible',
+                                width: 100,
+                                height: 100,
+                            }}
+                            key={scooter.id} 
+                            coordinate={{ latitude: scooter.coords.lat, longitude: scooter.coords.lng }}>
+                            <EcoMarker
+                                distanceToScooter={this.props.mapStore.navigateToPointDistance}
+                                timeToScooter={this.props.mapStore.navigateToPointDuration} />
+                        </Marker>
+
                 )}
+                
                 {this.props.modalStore.isOpen ? this.onNavigateToCoords() : null}         
                 {this.props.children}
             </MapView>

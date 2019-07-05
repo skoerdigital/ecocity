@@ -32,15 +32,21 @@ const calculateMeters = (batteryLevel) => {
     return (batteryLevel * 0.01 * MAX_RANGE).toFixed(1)
 }
 
-export default inject('modalStore')(observer(SingleScooterModal = React.forwardRef((props, ref) => {
+export default inject('modalStore', 'mapStore')(observer(SingleScooterModal = React.forwardRef((props, ref) => {
     return (<Modal 
         isOpen={props.modalStore.isOpen}
         style={styles.modal}
-        backdrop={true}  
+        backdrop={false}  
         position={"top"} 
         backdropPressToClose={true}
         entry={"top"}
-        onClosed={() =>  props.modalStore.onModalClose()}
+        // backdropOpacity={0.1}
+        onClosed={() =>  
+            {
+                props.modalStore.onModalClose()
+                props.mapStore.onDisactiveMarker();
+            }
+        }
         /*ref={ref}*/>
         <View style={styles.container}>
             <View style={styles.mainContainer}>

@@ -13,7 +13,7 @@ import {observer, inject} from 'mobx-react'
 import * as Animatable from 'react-native-animatable';
 
 
-@inject('listStore')
+@inject('listStore', 'mapStore')
 @observer
 export default class DrawerContainer extends Component {
 
@@ -44,7 +44,7 @@ export default class DrawerContainer extends Component {
                 </DrawerMenu>
                 <View style={styles.footer}>
                     <TextH2>
-                        footer
+                    {this.props.mapStore.navigateToPointDistance }
                     </TextH2>
                 </View>
             </View>
