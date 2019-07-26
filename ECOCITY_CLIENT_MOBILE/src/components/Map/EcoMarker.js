@@ -17,11 +17,11 @@ export default class EcoMarker extends Component{
             <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
                 
                 <Animatable.Image source={images.MAP_MARKER} style={{width: 40, height: 40, resizeMode: 'contain'}} animation="zoomIn" delay={1500} duration={1500} iterationCount={1} />
-                    { this.props.mapStore.markerActive ? 
-                    <Animatable.View animation={this.props.mapStore.markerActive ? 'zoomInDown' : 'fadeOut'} style={styles.directionTips}>
+                    
+                    <Animatable.View animation={this.props.mapStore.markerActive && this.props.id === this.props.mapStore.selectedScooter.id ? 'zoomInDown' : 'zoomOutUp'} style={styles.directionTips}>
                         <TextSmallInfo>{Math.round(this.props.distanceToScooter,2)} km</TextSmallInfo>
                         <TextSmallInfo>{Math.round(this.props.timeToScooter)} min</TextSmallInfo>
-                    </Animatable.View>: null}
+                    </Animatable.View>
             </View>
         )
     }

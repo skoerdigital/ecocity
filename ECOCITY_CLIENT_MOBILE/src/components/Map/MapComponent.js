@@ -8,8 +8,6 @@ import apiKey from '../../google_api_key';
 import { inject, observer } from 'mobx-react';
 import EcoMarker from './EcoMarker';
 import colors from '../../globals/colors'
-import EcoCallout from './EcoCallout';
-
 
 @inject('scooterStore', 'modalStore', 'mapStore')
 @observer
@@ -56,13 +54,14 @@ export default class HomeMap extends Component {
     }
 
     onShowSingleScooter(scooter){
-        this.props.modalStore.openModal(scooter);
+        this.props.mapStore.setSelectedScooter(scooter);
+        this.props.modalStore.openModal();
     }
 
     onNavigateToCoords(){
         const destination = {
-            latitude: this.props.modalStore.selectedScooter.coords.lat,
-            longitude: this.props.modalStore.selectedScooter.coords.lng
+            latitude: this.props.mapStore.selectedScooter.coords.lat,
+            longitude: this.props.mapStore.selectedScooter.coords.lng
         }
         return(
             this.props.modalStore.isOpen ? <MapViewDirections
@@ -72,8 +71,6 @@ export default class HomeMap extends Component {
                 strokeWidth={5}
                 strokeColor={colors.GREEN1}
                 onReady={result => {
-                    console.log(`Distance: ${result.distance} km`);
-                    console.log(`Duration: ${result.duration} min.`);
                     this.props.mapStore.setDirectionParameters(result.distance, result.duration);
                 }}
             /> : null
@@ -107,6 +104,7 @@ export default class HomeMap extends Component {
                             key={scooter.id} 
                             coordinate={{ latitude: scooter.coords.lat, longitude: scooter.coords.lng }}>
                             <EcoMarker
+                                id={scooter.id}
                                 distanceToScooter={this.props.mapStore.navigateToPointDistance}
                                 timeToScooter={this.props.mapStore.navigateToPointDuration} />
                         </Marker>

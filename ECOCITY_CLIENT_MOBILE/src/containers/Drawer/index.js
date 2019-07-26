@@ -39,12 +39,12 @@ export default class DrawerContainer extends Component {
                 <DrawerHello style={styles.globalPadding}>
                 
                 </DrawerHello>
-                <DrawerMenu style={[styles.menu, styles.globalPadding]}>
-
+                <DrawerMenu {...this.props} style={[styles.menu, styles.globalPadding]}>
+                
                 </DrawerMenu>
                 <View style={styles.footer}>
                     <TextH2>
-                    {this.props.mapStore.navigateToPointDistance }
+                    
                     </TextH2>
                 </View>
             </View>

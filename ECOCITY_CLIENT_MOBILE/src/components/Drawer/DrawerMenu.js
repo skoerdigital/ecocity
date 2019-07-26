@@ -5,12 +5,12 @@ import images from '../../globals/images';
 import TextH2 from '../UI/TextH2';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-export default class DrawerMenu extends Component {
 
+export default class DrawerMenu extends Component {
     render(){
         return(
             <View style={[styles.menu, this.props.style]}>
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Rides')}>
                     <Text style={styles.item}>RECENT RIDES</Text>
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback>

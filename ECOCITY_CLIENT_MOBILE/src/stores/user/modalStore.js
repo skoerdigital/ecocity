@@ -3,16 +3,9 @@ import { observable, action, decorate } from 'mobx';
 
 class ModalStore {
     isOpen = false;
-    selectedScooter;
 
-    constructor(){
-        //this.isOpen = true;
-        this.selectedScooter = {};
-    }
-
-    openModal(scooter){
+    openModal(){
         this.isOpen = true;
-        this.selectedScooter = scooter
     }
 
     onModalClose(){
@@ -23,8 +16,7 @@ class ModalStore {
 decorate(ModalStore, {
     isOpen: observable,
     toggleModal: action,
-    onModalClose: action,
-    selectedScooter: observable
+    onModalClose: action
 })
 
 export default new ModalStore();

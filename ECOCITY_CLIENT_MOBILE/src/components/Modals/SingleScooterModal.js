@@ -36,11 +36,11 @@ export default inject('modalStore', 'mapStore')(observer(SingleScooterModal = Re
     return (<Modal 
         isOpen={props.modalStore.isOpen}
         style={styles.modal}
-        backdrop={false}  
+        backdrop={true}  
         position={"top"} 
         backdropPressToClose={true}
         entry={"top"}
-        // backdropOpacity={0.1}
+        backdropOpacity={0.15}
         onClosed={() =>  
             {
                 props.modalStore.onModalClose()
@@ -54,24 +54,24 @@ export default inject('modalStore', 'mapStore')(observer(SingleScooterModal = Re
                     <Image
                         style={styles.scooterIcon}
                         source={images.SCOOTER_ICON}/>
-                    <TextSmall style={styles.idNumber}>{props.modalStore.selectedScooter.id}</TextSmall>
+                    <TextSmall style={styles.idNumber}>{props.mapStore.selectedScooter.id}</TextSmall>
                 </View>
                 <View style={styles.scooterInfo}>
                     <View style={styles.scooterParameters}>
                         <View style={styles.scooterParameter}>
                             <TextSmall style={styles.scooterParameterName}>Distance</TextSmall>
-                            <TextH1 style={styles.scooterParameterValue}>{calculateMeters(props.modalStore.selectedScooter.battery)}</TextH1>
+                            <TextH1 style={styles.scooterParameterValue}>{calculateMeters(props.mapStore.selectedScooter.battery)}</TextH1>
                             <TextSmall style={styles.scooterParameterUnit}>KM</TextSmall>
                         </View>
                         <View style={styles.scooterParameter}>
                             <TextSmall style={styles.scooterParameterName}>Time</TextSmall>
-                            <TextH1 style={styles.scooterParameterValue}>{calculateMinutes(props.modalStore.selectedScooter.battery)}</TextH1>
+                            <TextH1 style={styles.scooterParameterValue}>{calculateMinutes(props.mapStore.selectedScooter.battery)}</TextH1>
                             <TextSmall style={styles.scooterParameterUnit}>MIN</TextSmall>
                         </View>
                         <View style={[styles.scooterParameter, {marginRight: 0}]}>
                             <TextSmall style={styles.scooterParameterName}>Battery</TextSmall>
-                            <TextH1 style={styles.scooterParameterValue}>{props.modalStore.selectedScooter.battery+'%'}</TextH1>
-                            <BatteryLevel batteryLevel={props.modalStore.selectedScooter.battery} style={{flex: 0.5}}/>
+                            <TextH1 style={styles.scooterParameterValue}>{props.mapStore.selectedScooter.battery+'%'}</TextH1>
+                            <BatteryLevel batteryLevel={props.mapStore.selectedScooter.battery} style={{flex: 0.5}}/>
                         </View>
                     </View>
                     <TextSmallInfo style={styles.costsInfo}>$1 to unlock + $0,49 per minute</TextSmallInfo>

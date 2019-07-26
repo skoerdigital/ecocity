@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+import { HeaderBackButton, NavigationActions } from 'react-navigation';
 
 export default class RecentRides extends Component {
+
+    static navigationOptions = ({navigation}) => ({
+        headerLeft: (<HeaderBackButton onPress={()=>{ navigation.dispatch(NavigationActions.back()) }}/>),
+    })
+
     render(){
         return(
             <View style={styles.container}>

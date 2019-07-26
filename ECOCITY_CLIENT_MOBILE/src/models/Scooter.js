@@ -4,7 +4,6 @@ export default class Scooter {
     id;
     coords;
     battery;
-    lasu_used;
 
     constructor(obj){
             this.id = obj.id;
@@ -17,6 +16,5 @@ export default class Scooter {
 decorate(Scooter, {
     id: observable,
     coords: observable,
-    battery: observable,
-    last_used: observable
+    battery: observable
 })

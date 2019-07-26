@@ -1,17 +1,18 @@
 import { observable, action, decorate, computed, autorun } from 'mobx';
 
-
 class MapStore {
+
     currentPosition = { 
         latitude: null,
         longitude: null
     };
 
     markerActive = false;
-    selectedMarkerID = null;
 
     navigateToPointDistance = 0;
     navigateToPointDuration = 0;
+
+    selectedScooter = false;
 
     constructor(){
         this.currentPosition = { 
@@ -22,6 +23,11 @@ class MapStore {
 
     @computed get directionsParameters() {
         return this.navigateToPointDistance && this.navigateToPointDuration ? true : false
+    }
+
+
+    setSelectedScooter(scooter){
+        this.selectedScooter = scooter;
     }
 
     setDirectionParameters(distance, duration){
@@ -54,7 +60,7 @@ decorate(MapStore, {
     directionsReady: observable,
     markerActive: observable,
     onDisactiveMarker: action,
-    selectedMarkerID: observable  
+    selectedScooter: observable
 })
 
 

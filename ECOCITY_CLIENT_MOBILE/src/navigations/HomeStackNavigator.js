@@ -15,8 +15,7 @@ export default HomeStack = createStackNavigator({
     Rides: {
         screen: RecentRidesStackNavigator,
         navigationOptions: ({navigation}, title) => ({
-            headerLeft: (<HeaderBackButton onPress={()=>{ navigation.dispatch(NavigationActions.back()) }}/>),
-            title: "CHuj"
+            header: null 
         })
     }
 },{
