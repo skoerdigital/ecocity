@@ -1,25 +1,26 @@
 import { observable, runInAction, decorate, action } from 'mobx';
-import ScooterService from '../../services/ScooterService'
-import Scooter from '../../models/Scooter';
+import RentalService from '../../services/RentalService';
+import Rental from '../../models/Rental';
 
+class RentalStore {
 
-class ScooterStore {
+    constructor(){
+        this.rentalService = new RentalService();
+    }
 
-constructor(){
-    this.scooterService = new ScooterService();
-}
-    scooterData = [];
+    rentalData = [];
     status = "initial";
 
     @action
-    getScootersAsync = async () => {
+    getRentalsAsync = async () => {
         try {
-            const data = await this.scooterService.get();
+            const data = await this.rentalService.get();
             runInAction(() => {
-                data.map(scooter=>{
-                    this.scooterData.push(new Scooter(scooter))
+                data.map(rental=>{
+                    this.rentalData.push(new Rental(rental));
                 })
             });
+            
         } catch (error) {
             runInAction(() => {
                 this.status = "error";
@@ -71,8 +72,8 @@ constructor(){
     // }
 }
 
-decorate(ScooterStore, {
-    scooterData: observable
+decorate(RentalStore, {
+    rentalData: observable
 });
 
-export default new ScooterStore();
+export default new RentalStore();

@@ -17,9 +17,9 @@ import * as Animatable from 'react-native-animatable';
 @observer
 export default class DrawerContainer extends Component {
 
-    static navigationOptions = ({navigation}) => ({
-        headerTitle: (<Text>Drawer title</Text>)
-    })
+    // static navigationOptions = ({navigation}) => ({
+    //     headerTitle: (<Text>Drawer title</Text>)
+    // })
     
 
     onNavigate(routeName){

@@ -5,5 +5,6 @@ export default colors = {
     GREEN3: "#0c8040",
     GREEN4: "#0a5128",
     GREYLIGHT: "#babcbe",
-    GREYDARK: "#58595b"
+    GREYDARK: "#58595b",
+    GREYBG: "#f2f2f2"
 }

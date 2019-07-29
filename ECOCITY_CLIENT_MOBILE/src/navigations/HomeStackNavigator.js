@@ -14,7 +14,7 @@ export default HomeStack = createStackNavigator({
     },
     Rides: {
         screen: RecentRidesStackNavigator,
-        navigationOptions: ({navigation}, title) => ({
+        navigationOptions: ({navigation}) => ({
             header: null 
         })
     }
