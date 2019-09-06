@@ -16,7 +16,7 @@ export default RecentRidesStack = createStackNavigator({
         screen: RecentRides,
         navigationOptions: ({navigation}, title) => ({
             headerLeft: (customHeaderLeft(navigation)),
-            headerTitle: (<TextH1 style={{ color: colors.GREYDARK }}>Recent Rides</TextH1>) 
+            headerTitle: (<TextH1 style={{ color: colors.GREYDARK, fontSize: 17 }}>Recent Rides</TextH1>) 
         })
     },
     RideDetails: {

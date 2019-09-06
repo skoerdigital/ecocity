@@ -5,11 +5,11 @@ import sizes from '../../globals/sizes';
 export default styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
-        alignContent: 'center',
-        alignItems: 'center',
+        // flexDirection: 'column',
+        // alignContent: 'center',
+        // alignItems: 'center',
         backgroundColor: colors.GREYBG,
-        paddingVertical: sizes.PADDING_VERTICAL,
+        // paddingVertical: sizes.PADDING_VERTICAL,
         paddingHorizontal: sizes.PADDING_HORIZONTAL
     }
 });

@@ -21,10 +21,6 @@ export default StyleSheet.create({
         alignContent: "stretch",
         justifyContent: 'space-between',
     },
-    scanButton: {
-        width: 100,
-        height: 100
-    },  
     button: {
         fontFamily: 'Montserrat-Bold',   
     }

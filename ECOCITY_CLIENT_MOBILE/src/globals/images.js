@@ -11,4 +11,13 @@ export default images = {
     SCOOTER_ICON:  require('../assets/images/scooter-icon@1.png'),
     ROUTE_ICON:  require('../assets/images/route-icon@1.png'),
     BACK_BUTTON: require('../assets/images/back-button1@1.png'),
+    DISTANCE_ICON: require('../assets/images/distance-icon1.png'),
+    DURATION_ICON: require('../assets/images/duration-icon1.png'),
+    OVERLAY_SCAN: require('../assets/images/scan-overlay1.png'),
+    BIKE_ICON: require('../assets/images/bike-icon1.png'),
+    BUTTON_LIGHT: require('../assets/images/button-light1.png'),
+    BUTTON_CODE: require('../assets/images/button-place-code1.png'),
+    BUTTON_LIGHT: require('../assets/images/button-light1.png'),
+    BUTTON_LIGHT_ON: require('../assets/images/button-light-on1.png'),
+    BUTTON_CLOSE: require('../assets/images/button-close_11.png'),
 }

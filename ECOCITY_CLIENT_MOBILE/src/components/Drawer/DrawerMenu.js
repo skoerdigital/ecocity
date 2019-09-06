@@ -13,10 +13,10 @@ export default class DrawerMenu extends Component {
                 <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Rides')}>
                     <Text style={styles.item}>RECENT RIDES</Text>
                 </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Wallet')}>
                     <Text style={styles.item}>WALLET</Text>
                 </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Settings')}>
                     <Text style={styles.item}>SETTINGS</Text>
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback>

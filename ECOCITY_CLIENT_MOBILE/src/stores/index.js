@@ -4,6 +4,7 @@ import ModalStore from "./user/modalStore";
 import MapStore from "./user/mapStore";
 import RouterStore from "./user/routerStore";
 import RentalStore from "./domain/rentalStore";
+import ScanStore from "./user/scanStore";
 
 export default stores = {
   listStore: listStore,
@@ -11,5 +12,6 @@ export default stores = {
   modalStore: ModalStore,
   mapStore: MapStore,
   routerStore: RouterStore,
-  rentalStore: RentalStore
+  rentalStore: RentalStore,
+  scanStore: ScanStore
 }

@@ -1,36 +1,42 @@
 import React, { Component } from 'react';
-import {Text, View, StyleSheet, ScrollView} from 'react-native';
+import {Text, View, FlatList} from 'react-native';
 import {observer, inject} from 'mobx-react'
 
 import RecentRide from '../../components/Ride/SingleRide';
 import styles from './styles';
-
 
 @inject('rentalStore')
 @observer
 export default class RecentRides extends Component {
 
     componentDidMount(){
-        this.props.rentalStore.getRentalsAsync();
-        console.log(this.props.rentalStore)
+        const { getRentalsAsync } = this.props.rentalStore;
+        getRentalsAsync();
     }
 
     render(){
         return(
             <View style={styles.container}>
 
-                <ScrollView 
-                    contentContainerStyle={{ flexGrow: 1, flex: 1 }}
-                    bounces={false}
-                    vertical={false}>
-                    <RecentRide/>
-                    <RecentRide/>
-                    <RecentRide/>
-                    <RecentRide/>
-                    <RecentRide/>
-                    <RecentRide/>
-                    <RecentRide/>
-                </ScrollView>
+            <FlatList
+                style={{flex: 1}}
+                data={this.props.rentalStore.rentalData.slice()}
+                showsVerticalScrollIndicator={false}
+                enableEmptySections
+                keyExtractor={item => item.id}
+                renderItem={({item, index}) =>
+                <RecentRide
+                    index={index}
+                    startTime={item.startTime}
+                    endTime={item.endTime}
+                    startPoint={item.startPoint}
+                    endPoint={item.endPoint}
+                    amount={item.amount}
+                    duration={item.duration}
+                    distance={item.distance}
+                />
+                }
+                />
             </View>
         )
     }

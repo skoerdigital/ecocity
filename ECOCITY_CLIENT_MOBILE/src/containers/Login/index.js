@@ -9,7 +9,7 @@ export default class LoginContainer extends Component {
         return(
             <View style={styles.container}>
                 <TextH1 style={styles.header}>
-                    Sing Up
+                    Sing Up 1
                 </TextH1>
                 <Button
                     onPress={()=> (this.props.navigation.navigate('Register'))}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, Image} from 'react-native';
+import {View, Image} from 'react-native';
 
 import images from '../../globals/images';
 import TextH2 from '../../components/UI/TextH2';
@@ -10,17 +10,12 @@ import DrawerMenu from '../../components/Drawer/DrawerMenu';
 import styles from './styles';
 
 import {observer, inject} from 'mobx-react'
-import * as Animatable from 'react-native-animatable';
+
 
 
 @inject('listStore', 'mapStore')
 @observer
 export default class DrawerContainer extends Component {
-
-    // static navigationOptions = ({navigation}) => ({
-    //     headerTitle: (<Text>Drawer title</Text>)
-    // })
-    
 
     onNavigate(routeName){
         this.props.navigation.closeDrawer();

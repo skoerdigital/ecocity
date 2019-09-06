@@ -24,3 +24,6 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+
+
+console.disableYellowBox = true;

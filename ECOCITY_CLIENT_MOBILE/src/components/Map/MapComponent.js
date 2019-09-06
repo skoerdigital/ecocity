@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import { StyleSheet} from 'react-native';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
 import mapStyle from '../../globals/mapStyle';
@@ -15,8 +15,12 @@ export default class HomeMap extends Component {
 
     _mapView = null;
 
+    constructor(props){
+        super(props);
+    }
+
     componentDidMount(){
-        const { getScootersAsync, scooterData } = this.props.scooterStore;
+        const { getScootersAsync } = this.props.scooterStore;
         getScootersAsync()
 
         this.getCurrentPosition();
@@ -86,6 +90,7 @@ export default class HomeMap extends Component {
                 provider={PROVIDER_GOOGLE} 
                 style={styles.map}
                 customMapStyle={mapStyle}
+                showsUserLocation={true}
                 ref={c => this._mapView = c}
                 onPress={()=> this.props.mapStore.onDisactiveMarker()}
                 >

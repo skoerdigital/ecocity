@@ -2,6 +2,7 @@ import { observable, runInAction, decorate, action } from 'mobx';
 import RentalService from '../../services/RentalService';
 import Rental from '../../models/Rental';
 
+
 class RentalStore {
 
     constructor(){
@@ -10,70 +11,33 @@ class RentalStore {
 
     rentalData = [];
     status = "initial";
+    test = "start";
 
-    @action
     getRentalsAsync = async () => {
+        this.rentalData = [];
         try {
+            this.status = "pending";
             const data = await this.rentalService.get();
             runInAction(() => {
-                data.map(rental=>{
+                data.map((rental, index)=>{
+                    rental.id = rental.id + index;
                     this.rentalData.push(new Rental(rental));
-                })
+                });
+                this.status = "success";
             });
-            
         } catch (error) {
             runInAction(() => {
                 this.status = "error";
             });
         }
     };
-    // createCountryAsync = async (model) => {
-    //     try {
-    //         const response = await this.countryService.post(model);
-    //         if (response.status === 201) {
-    //             runInAction(() => {
-    //                 this.status = "success";
-    //             })
-    //         } 
-    //     } catch (error) {
-    //         runInAction(() => {
-    //             this.status = "error";
-    //         });
-    //     }
-
-    // };
-    // updateCountryAsync = async (vehicle) => {
-    //     try {
-    //         const response = await this.countryService.put(vehicle)
-    //         if (response.status === 200) {
-    //             runInAction(() => {
-    //                 this.status = "success";
-    //             })
-    //         } 
-    //     } catch (error) {
-    //         runInAction(() => {
-    //             this.status = "error";
-    //         });
-    //     }
-    // };
-    // deleteCountryAsync = async (id) => {
-    //     try {
-    //         const response = await this.countryService.delete(id);
-    //         if (response.status === 204) {
-    //             runInAction(() => {
-    //                 this.status = "success";
-    //             })
-    //         } 
-    //     } catch (error) {
-    //         runInAction(() => {
-    //             this.status = "error";
-    //         });
-    //     }
-    // }
 }
 
 decorate(RentalStore, {
-    rentalData: observable
+    rentalData: observable,
+    getRentalsAsync: action,
+    status: observable,
+    test: observable
 });
 
 export default new RentalStore();

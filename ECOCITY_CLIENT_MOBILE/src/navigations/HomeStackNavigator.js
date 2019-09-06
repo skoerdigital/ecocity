@@ -1,12 +1,12 @@
 import React from 'react';
+import { Image, TouchableOpacity } from 'react-native';
 import { createStackNavigator, HeaderBackButton, NavigationActions } from 'react-navigation';
-import DrawerNavigator from './DrawerNavigator';
 
-import WalletScreen from '../screens/WalletScreen';
 import HomeContainer from '../containers/Home'
-import SettingsScreen from '../screens/SettingsScreen';
 import RecentRidesStackNavigator from './RecentRidesStackNavigator';
-
+import WalletStackNavigator from './WalletStackNavigator';
+import SettingsStackNavigator from './SettingsStackNavigator';
+import ScanStackNavigator from './ScanStackNavigator';
 
 export default HomeStack = createStackNavigator({
     Home: {
@@ -16,6 +16,24 @@ export default HomeStack = createStackNavigator({
         screen: RecentRidesStackNavigator,
         navigationOptions: ({navigation}) => ({
             header: null 
+        })
+    },
+    Wallet: {
+        screen: WalletStackNavigator,
+        navigationOptions: ({navigation}) => ({
+            header: null 
+        })
+    },
+    Settings: {
+        screen: SettingsStackNavigator,
+        navigationOptions: ({navigation}) => ({
+            header: null 
+        })
+    },
+    Scan: {
+        screen: ScanStackNavigator,
+        navigationOptions: ({navigation}) => ({
+            header: null
         })
     }
 },{

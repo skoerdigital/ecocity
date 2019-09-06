@@ -98,11 +98,19 @@ const styles = StyleSheet.create({
         
     },
     mainContainer: {
-        flex: 0,
+        flex: 2,
         flexDirection: 'row',
         alignItems: 'stretch',
         justifyContent: 'space-between'
     }, 
+    buttons: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'stretch',
+        alignContent: 'center',
+        justifyContent: 'center',
+        marginTop: 20
+    },
     id: {
         flex: 1,
         flexDirection: 'column',
@@ -147,19 +155,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 3,
         textAlign: 'center',
-        color: colors.GREEN3
+        color: colors.GREEN3,
+        marginTop: 10
     },  
     costsInfo: {
         flex: 0,
         textTransform: 'none',
         color: colors.YELLOW,
         marginVertical: 15, 
-    },
-    buttons:{
-        flex: 0,
-        marginTop: 15,
-        flexDirection: 'row',
-        alignItems: 'stretch',
-        justifyContent: 'space-between'
     }
 })
