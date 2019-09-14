@@ -5,6 +5,7 @@ import MapStore from "./user/mapStore";
 import RouterStore from "./user/routerStore";
 import RentalStore from "./domain/rentalStore";
 import ScanStore from "./user/scanStore";
+import NotificationStore from "./domain/notificationStore";
 
 export default stores = {
   listStore: listStore,
@@ -13,5 +14,6 @@ export default stores = {
   mapStore: MapStore,
   routerStore: RouterStore,
   rentalStore: RentalStore,
-  scanStore: ScanStore
+  scanStore: ScanStore,
+  notificationStore: NotificationStore
 }

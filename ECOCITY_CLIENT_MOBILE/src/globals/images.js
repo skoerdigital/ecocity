@@ -20,4 +20,5 @@ export default images = {
     BUTTON_LIGHT: require('../assets/images/button-light1.png'),
     BUTTON_LIGHT_ON: require('../assets/images/button-light-on1.png'),
     BUTTON_CLOSE: require('../assets/images/button-close_11.png'),
+    SCAN_QR: require('../assets/images/scan_qr.png'),
 }

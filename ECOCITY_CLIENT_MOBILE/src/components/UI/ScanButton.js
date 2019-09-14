@@ -69,10 +69,7 @@ export default class ScanButton extends Component{
         return(
             <TouchableWithoutFeedback 
                 onPressIn={this.onPressedIn}
-                onPressOut={this.onPressedOut}
-                // onPress={() => this.props.openScannerHandler() }
-                >
-
+                onPressOut={this.onPressedOut}>
                         <View>
                         {this.renderRippleView()}
                             <Image

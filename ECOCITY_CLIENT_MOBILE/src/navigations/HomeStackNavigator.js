@@ -1,12 +1,12 @@
-import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
-import { createStackNavigator, HeaderBackButton, NavigationActions } from 'react-navigation';
+import { createStackNavigator} from 'react-navigation';
 
 import HomeContainer from '../containers/Home'
 import RecentRidesStackNavigator from './RecentRidesStackNavigator';
 import WalletStackNavigator from './WalletStackNavigator';
 import SettingsStackNavigator from './SettingsStackNavigator';
 import ScanStackNavigator from './ScanStackNavigator';
+import NotificationsStackNavigator from './NotificationsStackNavigator';
+import ReportIssueStackNavigator from './ReportIssueStackNavigator';
 
 export default HomeStack = createStackNavigator({
     Home: {
@@ -32,6 +32,18 @@ export default HomeStack = createStackNavigator({
     },
     Scan: {
         screen: ScanStackNavigator,
+        navigationOptions: ({navigation}) => ({
+            header: null
+        })
+    },
+    Notifications: {
+        screen: NotificationsStackNavigator,
+        navigationOptions: ({navigation}) => ({
+            header: null
+        })
+    },
+    ReportIssue: {
+        screen: ReportIssueStackNavigator,
         navigationOptions: ({navigation}) => ({
             header: null
         })
