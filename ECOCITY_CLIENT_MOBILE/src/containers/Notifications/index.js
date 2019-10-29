@@ -17,7 +17,6 @@ export default class NotificationsScreen extends Component {
     render(){
         return(
             <View style={styles.container}>
-
             <FlatList
                 style={{flex: 1}}
                 data={this.props.notificationStore.notificationData.slice()}
@@ -26,7 +25,7 @@ export default class NotificationsScreen extends Component {
                 keyExtractor={item => item.id}
                 renderItem={({item, index}) =>
                 <Notification
-                    index={index}
+                    index={item.id}
                     title={item.title}
                     message={item.message}
                     timestamp={item.timestamp}

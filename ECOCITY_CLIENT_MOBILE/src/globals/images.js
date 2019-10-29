@@ -1,4 +1,5 @@
 export default images = {
+    LOGO: require('../assets/images/logo.png'),
     LOGO_MONO_GREEN: require('../assets/images/ecocity@1.png'),
     LOGO_MONO_WHITE: require('../assets/images/ecocity-white@1.png'),
     MAP_MARKER:  require('../assets/images/map-marker@1.png'),
@@ -15,10 +16,10 @@ export default images = {
     DURATION_ICON: require('../assets/images/duration-icon1.png'),
     OVERLAY_SCAN: require('../assets/images/scan-overlay1.png'),
     BIKE_ICON: require('../assets/images/bike-icon1.png'),
-    BUTTON_LIGHT: require('../assets/images/button-light1.png'),
     BUTTON_CODE: require('../assets/images/button-place-code1.png'),
     BUTTON_LIGHT: require('../assets/images/button-light1.png'),
     BUTTON_LIGHT_ON: require('../assets/images/button-light-on1.png'),
     BUTTON_CLOSE: require('../assets/images/button-close_11.png'),
     SCAN_QR: require('../assets/images/scan_qr.png'),
+    CAMERA_ICON: require('../assets/images/camera-pic1.png'),
 }

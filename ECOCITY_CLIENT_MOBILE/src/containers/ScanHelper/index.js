@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 import { RNCamera } from 'react-native-camera';
 import * as Animatable from 'react-native-animatable';
@@ -22,13 +22,19 @@ export default class ScanHelperScreen extends Component {
     }
 
     componentWillUnmount(){
-        this.props.scanStore.turnOffLight();
+        this.props.scanStore.initStoreSettings();
+    }
+
+    onBarCodeReaded(event){
+        if(this.props.scanStore.shouldReadBarcode){
+            this.props.scanStore.setQRCodeValue(event.data);
+            this.props.navigation.dispatch(NavigationActions.back());
+        }
     }
 
     render(){
         return(
             <React.Fragment>
-                
                 <InputModal/>
                 <View style={styles.container}>
                     <Animatable.View 
@@ -73,9 +79,10 @@ export default class ScanHelperScreen extends Component {
                             alignItems: 'flex-end'
                         }}
                         flashMode={this.props.scanStore.light ? 'torch' : 'off'}
-                        onBarCodeRead={this.shouldReadBarcode ? ()=>{
-                            this.shouldReadBarcode = false;
-                        } : null }
+                        onBarCodeRead={(event) => {
+                            this.onBarCodeReaded(event);
+                            this.props.scanStore.turnOffBarcodeReading();
+                        }}
                     >
                     </RNCamera>
                 </View>

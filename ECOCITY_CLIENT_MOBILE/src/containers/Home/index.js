@@ -8,11 +8,10 @@ import images from '../../globals/images';
 import styles from './styles';
 import HomeMap from '../../components/Map/MapComponent';
 import SingleScooterModal from '../../components/Modals/SingleScooterModal';
+import RideScooterModal from '../../components/Modals/RideScooterModal';
 import ScanButton from '../../components/UI/ScanButton';
 import * as Animatable from 'react-native-animatable';
-
-
-
+import { Notification as Flash } from "react-native-in-app-message";
 
 @inject('scooterStore', 'mapStore')
 @observer
@@ -24,8 +23,6 @@ export default class HomeContainer extends Component {
     }
 
     spinValue = new Animated.Value(0)
-
-    
 
     static navigationOptions = ({navigation}) => ({
         headerTitle: (<Animatable.Image animation={'slideInDown'} duration={500} delay={250} style={{ width: 90, height: 39 }} source={images.LOGO_MONO_GREEN}/>),
@@ -49,10 +46,6 @@ export default class HomeContainer extends Component {
 
     onOpenScanner(){
         this.props.navigation.navigate('Scan');
-    }
-
-    onOpenNotifications(){
-        this.props.navigation.navigate('Notifications');
     }
 
     onOpenReportIssue(){
@@ -85,6 +78,7 @@ export default class HomeContainer extends Component {
 
         return(
             <View style={styles.container}>
+                { !this.props.scooterStore.isRideActive ?
                 <View style={styles.bottomButtons}>
                     <TouchableWithoutFeedback 
                         onPress={() => this.onOpenReportIssue()}>
@@ -103,17 +97,26 @@ export default class HomeContainer extends Component {
                                     style={{width: 40, height: 40, marginBottom: 15 }}
                                     source={images.LOCATE_BUTTON}/>
                         </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback onPress={ () => this.onAnimateButton() } >
+                        <TouchableWithoutFeedback
+                                onPress={
+                                    () => {
+                                        this.onAnimateButton();
+                                        Flash.show()
+                                    }
+
+                                } >
                                 <Animated.Image
                                     style={{width: 40, height: 40, transform: [{rotate: spin}]}}
                                     source={images.REFRESH_BUTTON}/>
                         </TouchableWithoutFeedback> 
                     </View>
-                </View>
+                </View> : null }
                 <HomeMap
                     ref={this.homeMap}>
                 </HomeMap>
                 <SingleScooterModal/>
+                <RideScooterModal/>
+
             </View>
         )
     }

@@ -36,12 +36,13 @@ target 'ECOCITY_RN' do
     pod 'react-native-google-maps', path: rn_maps_path  # Uncomment this line if you want to support GoogleMaps on iOS
     pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
     pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
+    pod 'Firebase/Core'
 
     pod 'react-native-camera', :path => '../node_modules/react-native-camera', subspecs: [
       'BarcodeDetectorMLKit'
     ]
 
-    pod 'react-native-torch', :path => '../node_modules/react-native-torch'
+    pod 'AzureNotificationHubs-iOS'
 
   end
   

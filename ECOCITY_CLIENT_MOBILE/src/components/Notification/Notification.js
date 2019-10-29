@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import colors from '../../globals/colors';
-import images from '../../globals/images';
 import TextH2 from '../../components/UI/TextH2';
 import TextSmallInfo from '../../components/UI/TextSmallInfo';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';

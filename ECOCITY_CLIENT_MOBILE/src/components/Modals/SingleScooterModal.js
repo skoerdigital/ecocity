@@ -9,6 +9,7 @@ import TextH1 from '../../components/UI/TextH1';
 import TextSmallInfo from '../UI/TextSmallInfo';
 import StandardButton from '../UI/Button';
 import BatteryLevel from '../Battery/BatteryLevel';
+import { TouchableWithoutFeedback, TouchableOpacity } from 'react-native-gesture-handler';
 
 const MAX_TIME = 150; // minutes
 const MAX_RANGE = 45; //km
@@ -32,7 +33,7 @@ const calculateMeters = (batteryLevel) => {
     return (batteryLevel * 0.01 * MAX_RANGE).toFixed(1)
 }
 
-export default inject('modalStore', 'mapStore')(observer(SingleScooterModal = React.forwardRef((props, ref) => {
+export default inject('modalStore', 'mapStore', 'scooterStore')(observer(SingleScooterModal = React.forwardRef((props, ref) => {
     return (<Modal 
         isOpen={props.modalStore.isOpen}
         style={styles.modal}
@@ -78,7 +79,12 @@ export default inject('modalStore', 'mapStore')(observer(SingleScooterModal = Re
                 </View>
             </View>
             <View style={styles.buttons}>
-                <StandardButton style={{marginRight: 5}}>Find</StandardButton>
+                
+                <StandardButton 
+                    handleParentMethod={()=>{
+                        props.scooterStore.onFindScooterAsync(props.mapStore.selectedScooter.id)
+                    }}
+                    style={{marginRight: 5}}>Find</StandardButton>
                 <StandardButton style={{marginLeft: 5}}>Report missing</StandardButton>
             </View>
         </View>

@@ -10,6 +10,8 @@ constructor(){
 }
     scooterData = [];
     status = "initial";
+    isRideActive = false;
+    timeElapsed = 0 // in seconds
 
     @action
     getScootersAsync = async () => {
@@ -26,6 +28,54 @@ constructor(){
             });
         }
     };
+
+    onFindScooterAsync = async (id) => {
+        try {
+            const data = await this.scooterService.beep();
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
+
+    onUnlockScooterAsync = async (id) => {
+        try {
+            const data = await this.scooterService.unlock();
+            runInAction(() => {
+                this.isRideActive = true;
+                this.rideTimer(this.isRideActive);
+            });
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
+
+    onLockScooterAsync = async (id) => {
+        try {
+            const data = await this.scooterService.lock();
+            runInAction(() => {
+                this.isRideActive = false;
+                this.rideTimer(this.isRideActive);
+            });
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
+
+    rideTimer = (status) => {
+        let interval = null;
+        if(status)
+            interval = setInterval( _ => {
+                this.timeElapsed += 1;
+            }, 1000)
+        else interval != null ? clearInterval(interval) : null;
+    }
+
     // createCountryAsync = async (model) => {
     //     try {
     //         const response = await this.countryService.post(model);
@@ -72,7 +122,11 @@ constructor(){
 }
 
 decorate(ScooterStore, {
-    scooterData: observable
+    scooterData: observable,
+    isRideActive: observable, 
+    onFindScooterAsync: action,
+    onUnlockScooterAsync: action,
+    timeElapsed: observable
 });
 
 export default new ScooterStore();

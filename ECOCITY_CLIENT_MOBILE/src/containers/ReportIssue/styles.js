@@ -35,5 +35,26 @@ export default styles = StyleSheet.create({
         color: colors.GREYDARK,
         fontSize: 10,
         letterSpacing: 1
-    }
+    },
+    attach_picture_btn: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginVertical: 10,
+        height: 30, 
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    attach_picture_img: {
+        resizeMode: 'contain',
+        width: 30,
+        height: 30,
+    },
+    attach_picture_text: {
+        textTransform: "uppercase",
+        fontFamily: "Montserrat-Regular",
+        fontSize: 12,
+        letterSpacing: 1,
+        marginLeft: 7,
+        color: colors.GREYDARK
+    },
 });

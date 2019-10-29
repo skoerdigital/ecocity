@@ -1,12 +1,15 @@
 import React,  { Component } from 'react';
 import { View, Text, TextInput, Image, TouchableWithoutFeedback } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import { inject, observer } from 'mobx-react';
 
 import styles from './styles';
 import StandardButton from '../../components/UI/Button';
 import images from '../../globals/images';
 
 
+@inject('scanStore')
+@observer
 export default class ReportIssueScreen extends Component {
 
     constructor(props){
@@ -15,7 +18,7 @@ export default class ReportIssueScreen extends Component {
             qrMarginTop: 0
         }
     }
-    
+
     render(){
         return (
             <View style={styles.container}>
@@ -30,9 +33,9 @@ export default class ReportIssueScreen extends Component {
                                     }
                                 } 
                                 style={styles.input}
-                                placeholder="Type here to translate!"
+                                placeholder=""
                                 onChangeText={(text) => console.log(text)}
-                                value={'Tomasz'}
+                                value={this.props.scanStore.qrCodeValue}
                             />
                             <TouchableWithoutFeedback
                                 onPress={()=> this.props.navigation.navigate('ScanHelper')}>
@@ -65,6 +68,20 @@ export default class ReportIssueScreen extends Component {
                             onChangeText={(text) => console.log(text)}
                             value={null}
                         />
+                    </View>
+                    <View>
+                        <TouchableWithoutFeedback
+                                onPress={()=> this.props.navigation.navigate('ScanHelper')}>
+                                <View style={styles.attach_picture_btn}>
+                                    <Image
+                                        source={images.CAMERA_ICON}
+                                        style={styles.attach_picture_img}
+                                        ></Image>
+                                    <Text style={styles.attach_picture_text}>
+                                        attach picture
+                                    </Text>
+                                </View>
+                            </TouchableWithoutFeedback>
                     </View>
                     <StandardButton style={{flex: 0}}>
                         Submit

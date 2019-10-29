@@ -4,21 +4,21 @@ export default class Rental {
     id;
     startPoint;
     endPoint;
-    amount;
+    chargedPrice;
     startTime;
     endTime;
-    duration;
-    distance;
+    distanceKilometers;
+
+  
 
     constructor(obj){
             this.id = obj.id;
             this.startPoint = obj.startPoint;
             this.endPoint = obj.endPoint;
-            this.amount = obj.amount;
+            this.chargedPrice = obj.chargedPrice;
             this.startTime = obj.startTime;
             this.endTime = obj.endTime;
-            this.duration = obj.duration;
-            this.distance = obj.distance
+            this.distanceKilometers = obj.distanceKilometers
     }
 }
 
@@ -26,9 +26,8 @@ decorate(Rental, {
     id: observable,
     startPoint: observable,
     endPoint: observable,
-    amount: observable,
+    chargedPrice: observable,
     startTime: observable,
     endTime: observable,
-    duration: observable,
-    distance: observable
+    distanceKilometers: observable
 })

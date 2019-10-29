@@ -19,11 +19,9 @@ class NotificationStore {
             this.status = "pending";
             const data = await this.notificationService.get();
             runInAction(() => {
-                data.map((notification, index)=>{
+                data.map((notification)=>{
                     this.notificationData.push(new Notification(notification));
-                    
                 });
-                console.log(data);
                 console.log(this.notificationData);
                 this.status = "success";
             });

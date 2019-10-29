@@ -10,29 +10,25 @@ import images from '../../globals/images';
 import { observer, inject } from 'mobx-react';
 import InputModal from '../../components/InputModal/InputModal';
 
-
-
-
-@inject('scanStore')
+@inject('scanStore', 'scooterStore')
 @observer
 export default class ScanContainer extends Component {
 
-    componentDidMount(){
-        this.shouldReadBarcode = true;
-    }
-    
-    // componentDidUpdate(){
-    //     console.log(`Changed ${this.props}`);
-    // }
-
     componentWillUnmount(){
-        this.props.scanStore.turnOffLight();
+        this.props.scanStore.initStoreSettings();
+    }
+
+    onBarCodeReaded(event){
+        if(this.props.scanStore.shouldReadBarcode){
+            this.props.scanStore.setQRCodeValue(event.data);
+            this.props.scooterStore.onUnlockScooterAsync(2);
+            this.props.navigation.dispatch(NavigationActions.back());
+        }
     }
 
     render(){
         return(
             <React.Fragment>
-                
                 <InputModal/>
                 <View style={styles.container}>
                     <Animatable.View 
@@ -89,10 +85,10 @@ export default class ScanContainer extends Component {
                             alignItems: 'flex-end'
                         }}
                         flashMode={this.props.scanStore.light ? 'torch' : 'off'}
-                        onBarCodeRead={this.shouldReadBarcode ? ()=>{
-                            this.shouldReadBarcode = false;
-                        } : null }
-                    >
+                        onBarCodeRead={ (event) => {
+                            this.onBarCodeReaded(event);
+                            this.props.scanStore.turnOffBarcodeReading();
+                        }}>
                     </RNCamera>
                 </View>
             </React.Fragment>

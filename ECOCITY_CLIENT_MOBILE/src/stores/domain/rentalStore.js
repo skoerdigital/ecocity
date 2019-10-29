@@ -2,7 +2,6 @@ import { observable, runInAction, decorate, action } from 'mobx';
 import RentalService from '../../services/RentalService';
 import Rental from '../../models/Rental';
 
-
 class RentalStore {
 
     constructor(){
@@ -20,8 +19,13 @@ class RentalStore {
             const data = await this.rentalService.get();
             runInAction(() => {
                 data.map((rental, index)=>{
-                    rental.id = rental.id + index;
-                    this.rentalData.push(new Rental(rental));
+                    let updatedRental = {
+                        ...rental,
+                        get duration(){
+                            return new Date(this.endTime - this.startTime)
+                        }
+                    }
+                    this.rentalData.push(new Rental(updatedRental));
                 });
                 this.status = "success";
             });
@@ -31,6 +35,8 @@ class RentalStore {
             });
         }
     };
+
+
 }
 
 decorate(RentalStore, {

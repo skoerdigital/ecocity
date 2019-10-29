@@ -12,6 +12,7 @@ export default class RecentRides extends Component {
     componentDidMount(){
         const { getRentalsAsync } = this.props.rentalStore;
         getRentalsAsync();
+        console.log()
     }
 
     render(){
@@ -31,9 +32,8 @@ export default class RecentRides extends Component {
                     endTime={item.endTime}
                     startPoint={item.startPoint}
                     endPoint={item.endPoint}
-                    amount={item.amount}
-                    duration={item.duration}
-                    distance={item.distance}
+                    chargedPrice={item.chargedPrice}
+                    distanceKilometers={item.distanceKilometers}
                 />
                 }
                 />

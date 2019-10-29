@@ -18,7 +18,7 @@ export default singleRide = (props) => (
         <View style={styles.top}>
             <View style={styles.line}>
                 <TextH2 style={styles.date}>{props.startTime.substr(0,10)}</TextH2>
-                <TextH2 style={styles.price}>{props.index + ' ' + props.amount}</TextH2>
+                <TextH2 style={styles.price}>{props.chargedPrice}</TextH2>
             </View>
             <View style={styles.line}>
                 <TextSmallInfo style={styles.time}>{props.startTime.substr(12,16) + ' - ' + props.endTime.substr(12,16)}</TextSmallInfo>
@@ -31,7 +31,7 @@ export default singleRide = (props) => (
                     style={styles.statIcon}
                     source={images.DISTANCE_ICON}/>
                     <View style={styles.statValue}>
-                        <Text style={styles.counter}>{props.distance}</Text>
+                        <Text style={styles.counter}>{props.distanceKilometers}</Text>
                         <Text style={styles.units}>KM</Text>
                     </View>
             </View>
@@ -40,7 +40,7 @@ export default singleRide = (props) => (
                     style={styles.statIcon}
                     source={images.DURATION_ICON}/>
                     <View style={styles.statValue}>
-                        <Text style={styles.counter}>{props.duration.substr(3,5)}</Text>
+                        {/* <Text style={styles.counter}>{props.duration.substr(3,5)}</Text> */}
                         <Text style={styles.units}>MIN</Text>
                     </View>
             </View>
