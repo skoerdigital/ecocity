@@ -56,9 +56,9 @@ export default class LoginContainer extends Component {
                             animation="fadeIn"
                             duration={300}
                             delay={300}>
-                            <StandardButton
-                                handleParentMethod={()=> (this.props.navigation.navigate('Main'))}
-                                style={{flex: 0, width: '100%'}}> Sign in </StandardButton>
+                            {/*<StandardButton*/}
+                            {/*    handleParentMethod={()=> (this.props.navigation.navigate('Main'))}*/}
+                            {/*    style={{flex: 0, width: '100%'}}> Sign in </StandardButton>*/}
                         </Animatable.View>
                     </View>
                     <View style={{ flex: 0.3, overflow: 'hidden'}}>
