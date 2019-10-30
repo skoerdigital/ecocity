@@ -14,6 +14,10 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
+#import "BraintreeCore.h"
+#import "RCTLinkingManager.h"
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -32,6 +36,8 @@
   
   [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
   [[UIApplication sharedApplication] registerForRemoteNotifications];
+  
+  [BTAppSwitch setReturnURLScheme:self.paymentsURLScheme];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
@@ -40,6 +46,23 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+
+    if ([url.scheme localizedCaseInsensitiveCompare:self.paymentsURLScheme] == NSOrderedSame) {
+        return [BTAppSwitch handleOpenURL:url options:options];
+    }
+
+    return [RCTLinkingManager application:application openURL:url options:options];
+}
+
+- (NSString *)paymentsURLScheme {
+    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+    return [NSString stringWithFormat:@"%@.%@", bundleIdentifier, @"payments"];
+}
+
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {

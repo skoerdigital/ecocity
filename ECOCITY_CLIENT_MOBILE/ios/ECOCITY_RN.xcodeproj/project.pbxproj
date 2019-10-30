@@ -49,6 +49,7 @@
 		7D85C677D38743FAA5EAEE67 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 245E86EF930648BB9CAF4394 /* Montserrat-Italic.ttf */; };
 		82B90663488B48C08C153976 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D81C14321744808ADB4B41 /* libRNGestureHandler.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		9B170A7F95634DEB86679F40 /* libRNBraintreeDropIn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E62BFDA4676F41038B1AD4FE /* libRNBraintreeDropIn.a */; };
 		9B5D452A99D7435A9502ED76 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A23BF2B010DB4E16BED06B2F /* Montserrat-Black.ttf */; };
 		A3FCC32C1873496E9D8C6AEF /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EF7190CE754471DB446307B /* Montserrat-Regular.ttf */; };
 		AB5CB1F93C714300A961DF8C /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F729063ACFD41FDA9E9AC40 /* Montserrat-Light.ttf */; };
@@ -278,6 +279,13 @@
 			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
 			remoteInfo = "cxxreact-tvOS";
 		};
+		4C6CBE79236A0E0900959E8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF15896E6C354597940EDF08 /* RNBraintreeDropIn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNBraintreeDropIn;
+		};
 		4C71800022B7F5F600DA40C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -435,9 +443,11 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ADD4CE71894D4796AD9FC03A /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../src/assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
 		C999E97B30F34DF78092AAC4 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
+		E62BFDA4676F41038B1AD4FE /* libRNBraintreeDropIn.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBraintreeDropIn.a; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F62B284B07684213AAA48009 /* libRNInAppMessage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNInAppMessage.a; sourceTree = "<group>"; };
+		FF15896E6C354597940EDF08 /* RNBraintreeDropIn.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBraintreeDropIn.xcodeproj; path = "../node_modules/react-native-braintree-payments-drop-in/ios/RNBraintreeDropIn.xcodeproj"; sourceTree = "<group>"; };
 		FF902E126B45425092DE00FD /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBold.ttf"; path = "../src/assets/fonts/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -471,6 +481,7 @@
 				77374DE926BB4BD3B76AE5C8 /* libRNSVG.a in Frameworks */,
 				0716C8244A52EFC3D9BD28CF /* libPods-ECOCITY_RN.a in Frameworks */,
 				DB85327D6A2648DC8C8F4693 /* libRNInAppMessage.a in Frameworks */,
+				9B170A7F95634DEB86679F40 /* libRNBraintreeDropIn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +644,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4C6CBE76236A0E0900959E8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C6CBE7A236A0E0900959E8A /* libRNBraintreeDropIn.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		4C717FDA22B7F5F600DA40C8 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,6 +660,7 @@
 				1DC85505AE5343009CA3BA04 /* libRNGestureHandler-tvOS.a */,
 				09714F49888F4FE38BEA90E7 /* libRNSVG-tvOS.a */,
 				F62B284B07684213AAA48009 /* libRNInAppMessage.a */,
+				E62BFDA4676F41038B1AD4FE /* libRNBraintreeDropIn.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -732,6 +752,7 @@
 				89B8A04A4DFA4D7E869AEF7B /* RNGestureHandler.xcodeproj */,
 				C999E97B30F34DF78092AAC4 /* RNSVG.xcodeproj */,
 				59B6F190AB47445EB2D2F3BB /* RNInAppMessage.xcodeproj */,
+				FF15896E6C354597940EDF08 /* RNBraintreeDropIn.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -821,7 +842,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				A6D433830D79ED3FF71948B9 /* [CP] Copy Pods Resources */,
+				62C202AD9BEA3119451CEFEE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -960,6 +981,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 4C6CBE76236A0E0900959E8A /* Products */;
+					ProjectRef = FF15896E6C354597940EDF08 /* RNBraintreeDropIn.xcodeproj */;
 				},
 				{
 					ProductGroup = 4C71801022B7F5F600DA40C8 /* Products */;
@@ -1181,6 +1206,13 @@
 			remoteRef = 3DAD3EAA1DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		4C6CBE7A236A0E0900959E8A /* libRNBraintreeDropIn.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBraintreeDropIn.a;
+			remoteRef = 4C6CBE79236A0E0900959E8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		4C71800122B7F5F600DA40C8 /* libjsi.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1347,7 +1379,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1362,6 +1394,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		62C202AD9BEA3119451CEFEE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ECOCITY_RN/Pods-ECOCITY_RN-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/BraintreeDropIn/Braintree-UIKit-Localization.bundle",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Braintree-UIKit-Localization.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ECOCITY_RN/Pods-ECOCITY_RN-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		8518E9515C6590F4056778E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1383,24 +1435,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6D433830D79ED3FF71948B9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ECOCITY_RN/Pods-ECOCITY_RN-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ECOCITY_RN/Pods-ECOCITY_RN-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1481,6 +1515,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-in-app-message/src/RNInAppMessage/ios/RNInAppMessage/**",
+					"$(SRCROOT)/../node_modules/react-native-braintree-payments-drop-in/ios",
 				);
 				INFOPLIST_FILE = ECOCITY_RNTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1509,6 +1544,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-in-app-message/src/RNInAppMessage/ios/RNInAppMessage/**",
+					"$(SRCROOT)/../node_modules/react-native-braintree-payments-drop-in/ios",
 				);
 				INFOPLIST_FILE = ECOCITY_RNTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1543,6 +1579,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-in-app-message/src/RNInAppMessage/ios/RNInAppMessage/**",
+					"$(SRCROOT)/../node_modules/react-native-braintree-payments-drop-in/ios",
 				);
 				INFOPLIST_FILE = ECOCITY_RN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1573,6 +1610,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-in-app-message/src/RNInAppMessage/ios/RNInAppMessage/**",
+					"$(SRCROOT)/../node_modules/react-native-braintree-payments-drop-in/ios",
 				);
 				INFOPLIST_FILE = ECOCITY_RN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1605,6 +1643,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-in-app-message/src/RNInAppMessage/ios/RNInAppMessage/**",
+					"$(SRCROOT)/../node_modules/react-native-braintree-payments-drop-in/ios",
 				);
 				INFOPLIST_FILE = "ECOCITY_RN-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1641,6 +1680,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-in-app-message/src/RNInAppMessage/ios/RNInAppMessage/**",
+					"$(SRCROOT)/../node_modules/react-native-braintree-payments-drop-in/ios",
 				);
 				INFOPLIST_FILE = "ECOCITY_RN-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1676,6 +1716,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-in-app-message/src/RNInAppMessage/ios/RNInAppMessage/**",
+					"$(SRCROOT)/../node_modules/react-native-braintree-payments-drop-in/ios",
 				);
 				INFOPLIST_FILE = "ECOCITY_RN-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1711,6 +1752,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-in-app-message/src/RNInAppMessage/ios/RNInAppMessage/**",
+					"$(SRCROOT)/../node_modules/react-native-braintree-payments-drop-in/ios",
 				);
 				INFOPLIST_FILE = "ECOCITY_RN-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

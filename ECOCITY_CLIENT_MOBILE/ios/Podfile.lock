@@ -1,6 +1,43 @@
 PODS:
   - AzureNotificationHubs-iOS (2.0.3)
   - boost-for-react-native (1.63.0)
+  - Braintree/Apple-Pay (4.23.0):
+    - Braintree/Core
+  - Braintree/Card (4.23.0):
+    - Braintree/Core
+  - Braintree/Core (4.23.0)
+  - Braintree/DataCollector (4.23.0):
+    - Braintree/Core
+  - Braintree/PaymentFlow (4.23.0):
+    - Braintree/Card
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPal (4.23.0):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.23.0):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.23.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.23.0)
+  - Braintree/UnionPay (4.23.0):
+    - Braintree/Card
+    - Braintree/Core
+  - Braintree/Venmo (4.23.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+  - BraintreeDropIn (6.5.0):
+    - BraintreeDropIn/DropIn (= 6.5.0)
+  - BraintreeDropIn/DropIn (6.5.0):
+    - Braintree/Card (~> 4.17)
+    - Braintree/Core (~> 4.17)
+    - Braintree/PaymentFlow (~> 4.17)
+    - Braintree/UnionPay (~> 4.17)
+    - BraintreeDropIn/UIKit
+  - BraintreeDropIn/UIKit (6.5.0)
   - DoubleConversion (1.1.6)
   - Firebase/Core (6.2.0):
     - Firebase/CoreOnly
@@ -195,6 +232,11 @@ PODS:
 
 DEPENDENCIES:
   - AzureNotificationHubs-iOS
+  - Braintree/Apple-Pay
+  - Braintree/DataCollector
+  - Braintree/PayPal
+  - Braintree/Venmo
+  - BraintreeDropIn (~> 6.0)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Firebase/Core
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
@@ -223,6 +265,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AzureNotificationHubs-iOS
     - boost-for-react-native
+    - Braintree
+    - BraintreeDropIn
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -262,6 +306,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AzureNotificationHubs-iOS: 311d19db7e82e04d2a1d9716b368625a074ee737
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  Braintree: b5841b9b1c1dadc86959db3e29d36099b67f91bf
+  BraintreeDropIn: e141f6c1b49f0e3dd68ca00ccf6bb3031cc5e164
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Firebase: 5965bac23e7fcb5fa6d926ed429c9ecef8a2014e
   FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
@@ -288,6 +334,6 @@ SPEC CHECKSUMS:
   react-native-maps: 0316ed017dbb64b33b227751fa810e2454fcfa39
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 4b75ee7977a456c173e256addc9afc1e5f657aa0
+PODFILE CHECKSUM: b9b7256869b0cb42ca67faef5deec33ff34dee39
 
 COCOAPODS: 1.7.2

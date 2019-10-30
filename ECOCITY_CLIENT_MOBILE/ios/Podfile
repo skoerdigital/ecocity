@@ -44,6 +44,20 @@ target 'ECOCITY_RN' do
 
     pod 'AzureNotificationHubs-iOS'
 
+    pod 'BraintreeDropIn', '~> 6.0'
+
+    pod 'Braintree/Apple-Pay'
+
+    # comment the next line to disable PayPal
+    pod 'Braintree/PayPal'
+
+    # comment the next line to disable Venmo
+    pod 'Braintree/Venmo'
+
+    # Data collector for Braintree Advanced Fraud Tools
+    pod 'Braintree/DataCollector'
+
+
   end
   
   post_install do |installer|
