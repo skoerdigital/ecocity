@@ -16,7 +16,14 @@ export default WalletStack = createStackNavigator({
             headerLeft: (customHeaderLeft(navigation)),
             headerTitle: (<TextH1 style={{ color: colors.GREYDARK, fontSize: 17 }}>Wallet</TextH1>) 
         })
-    }
+    },
+    // WalletTopUp: {
+    //
+    //     navigationOptions: ({navigation}, title) => ({
+    //         headerLeft: (customHeaderLeft(navigation)),
+    //         headerTitle: (<TextH1 style={{ color: colors.GREYDARK, fontSize: 17 }}>Top Up</TextH1>)
+    //     })
+    // }
 },
 {
     headerMode: 'screen',    
