@@ -52,7 +52,7 @@ export default class LoginContainer extends Component {
                             />
                         </Animatable.View>
                         <Animatable.View
-                            style={{flex: 0, width: '100%'}}
+                            style={{flex: 0, width: '100%', marginTop: 10}}
                             animation="fadeIn"
                             duration={300}
                             delay={300}>
@@ -60,8 +60,6 @@ export default class LoginContainer extends Component {
                                 handleParentMethod={()=> (this.props.navigation.navigate('Main'))}
                                 style={{flex: 0, width: '100%'}}> Sign in </StandardButton>
                         </Animatable.View>
-                    </View>
-                    <View style={{ flex: 0.3, overflow: 'hidden'}}>
                         <Animatable.Text
                             onPress={()=> (this.props.navigation.navigate('Register'))}
                             animation="fadeInUp"
@@ -70,43 +68,43 @@ export default class LoginContainer extends Component {
                             style={{
                                 flex: 1,
                                 alignSelf: 'center',
-                                bottom: 40,
-                                position: 'absolute',
-                                zIndex: 999,
-                                color: colors.GREEN4,
-                                fontFamily: 'Montserrat-Regular'
+                                color: colors.GREEN2,
+                                marginTop: 20,
+                                fontFamily: 'Montserrat-Semibold',
                             }}
-                            >Not registered? Sign up</Animatable.Text>
+                        >Not registered? Sign up</Animatable.Text>
+                    </View>
+                    <View style={{ flex: 0.4, overflow: 'hidden'}}>
+
                         <Animatable.View
                                 animation="fadeInRight"
                                 style={{ position: 'relative', flex: 1, bottom: 0}}>
                             <Image
 
-                                source={images.BIKE_ICON}
+                                source={images.SCOOTER_DRAW}
                                 style={{
                                     position: 'absolute',
                                     bottom: 0,
+                                    top: 0,
                                     flex: 1,
                                     resizeMode: 'contain',
-                                    aspectRatio: 1,
                                     alignSelf: 'center',
-                                    justifySelf: 'center',
-                                    width: width*0.5,
-                                    height: undefined }}
+                                    width: '100%',
+                                    height: '100%' }}
                             />
                         </Animatable.View>
-                        <Animatable.View
-                            animation={fadeIn}
-                            duration={800}
-                            delay={800}
-                            style={[{
-                                position: 'absolute',
-                                width: width*1.2,
-                                height: width*1.2,
-                                marginTop: 45,
-                                marginLeft: - (width*1.2 - width) / 2,
-                                borderRadius: width*1.2/2
-                        }, styles.circle]}></Animatable.View>
+                        {/*<Animatable.View*/}
+                        {/*    animation={fadeIn}*/}
+                        {/*    duration={800}*/}
+                        {/*    delay={800}*/}
+                        {/*    style={[{*/}
+                        {/*        position: 'absolute',*/}
+                        {/*        width: width*1.2,*/}
+                        {/*        height: width*1.2,*/}
+                        {/*        marginTop: 45,*/}
+                        {/*        marginLeft: - (width*1.2 - width) / 2,*/}
+                        {/*        borderRadius: width*1.2/2*/}
+                        {/*}, styles.circle]}></Animatable.View>*/}
                     </View>
                 </View>
             </TouchableWithoutFeedback>

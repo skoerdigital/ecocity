@@ -16,7 +16,15 @@ export default class StandardButton extends Component {
                         }
                     }}
                     style={[{ flex: 1, padding: this.props.style.flex === 0 ? 15 : 0, backgroundColor: colors.GREEN1, overflow: 'hidden', borderRadius: 10, alignItems: 'center', justifyContent: 'center' }, this.props.style]}>
-                        <Text {...this.props} style={[{fontFamily: 'Montserrat-Bold', fontSize: 14, textAlign: 'center', color: 'white'}, this.props.style]}>{this.props.children}</Text>
+                    {typeof this.props.children === 'string' ?
+                        <Text {...this.props} style={[{
+                            fontFamily: 'Montserrat-Bold',
+                            fontSize: 14,
+                            textAlign: 'center',
+                            color: 'white'
+                        }, this.props.style]}>{this.props.children}</Text> :
+                        <View>{this.props.children}</View>
+                    }
                 </Ripple>
            
         )

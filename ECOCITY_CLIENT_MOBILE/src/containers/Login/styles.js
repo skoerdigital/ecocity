@@ -19,7 +19,7 @@ export default StyleSheet.create({
         width: '30%'
     },
     inputGroup: {
-        paddingVertical: 40,
+        paddingTop: 40,
         paddingHorizontal: 20,
         width: '100%',
         textAlign: 'center'

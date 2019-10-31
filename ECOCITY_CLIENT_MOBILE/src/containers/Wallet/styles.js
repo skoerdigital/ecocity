@@ -14,8 +14,8 @@ export default styles = StyleSheet.create({
         marginVertical: 10
     },
     balanceContainer: {
-        flex: 0,
-        height: '50%',
+        flex: 1,
+        height: undefined,
         flexDirection: 'column',
         backgroundColor: 'white',
         borderRadius: 15,

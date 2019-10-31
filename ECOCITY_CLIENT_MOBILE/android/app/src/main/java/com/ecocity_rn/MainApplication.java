@@ -3,6 +3,7 @@ package com.ecocity_rn;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import tech.bam.RNBraintreeDropIn.RNBraintreeDropInPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.cubicphuse.RCTTorch.RCTTorchPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNBraintreeDropInPackage(),
             new RNCameraPackage(),
             new MapsPackage(),
             new RCTTorchPackage(),

@@ -10,6 +10,7 @@ export default images = {
     LOCATE_BUTTON:  require('../assets/images/circle-location-button@1.png'),
     REFRESH_BUTTON:  require('../assets/images/circle-refresh-button@1.png'),
     SCOOTER_ICON:  require('../assets/images/scooter-icon@1.png'),
+    SCOOTER_DRAW:  require('../assets/images/scooter_drawx1.png'),
     ROUTE_ICON:  require('../assets/images/route-icon@1.png'),
     BACK_BUTTON: require('../assets/images/back-button1@1.png'),
     DISTANCE_ICON: require('../assets/images/distance-icon1.png'),
