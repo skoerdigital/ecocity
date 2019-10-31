@@ -9,19 +9,6 @@ import colors from "../../globals/colors";
 export default class LoginContainer extends Component {
 
     render(){
-        const { width } = Dimensions.get('window');
-
-        const fadeIn = {
-            from: {
-                opacity: 0,
-                top: "50%"
-            },
-            to: {
-                opacity: 0.45,
-                top: "0%"
-            },
-        };
-
         return(
             <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
                 <View style={{ flex: 1}}>
@@ -80,7 +67,6 @@ export default class LoginContainer extends Component {
                                 animation="fadeInRight"
                                 style={{ position: 'relative', flex: 1, bottom: 0}}>
                             <Image
-
                                 source={images.SCOOTER_DRAW}
                                 style={{
                                     position: 'absolute',
@@ -93,18 +79,6 @@ export default class LoginContainer extends Component {
                                     height: '100%' }}
                             />
                         </Animatable.View>
-                        {/*<Animatable.View*/}
-                        {/*    animation={fadeIn}*/}
-                        {/*    duration={800}*/}
-                        {/*    delay={800}*/}
-                        {/*    style={[{*/}
-                        {/*        position: 'absolute',*/}
-                        {/*        width: width*1.2,*/}
-                        {/*        height: width*1.2,*/}
-                        {/*        marginTop: 45,*/}
-                        {/*        marginLeft: - (width*1.2 - width) / 2,*/}
-                        {/*        borderRadius: width*1.2/2*/}
-                        {/*}, styles.circle]}></Animatable.View>*/}
                     </View>
                 </View>
             </TouchableWithoutFeedback>
